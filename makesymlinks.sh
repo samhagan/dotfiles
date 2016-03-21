@@ -51,7 +51,7 @@ fi
 clone_OMZ() {
 if [[ ! -d $dir/oh-my-zsh/ ]]; then
   echo -n "cloning oh-my-zsh"
-  git clone http://github.com/robbyrussell/oh-my-zsh.git
+  git clone git@github.com:robbyrussell/oh-my-zsh.git 
 fi
 }
 
