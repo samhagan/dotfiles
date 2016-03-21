@@ -22,6 +22,7 @@ Plug 'pmsorhaindo/syntastic-local-eslint.vim'
 "Plug 'tpope/vim-sensible'
 "Plug 'ntpeters/vim-better-whitespace'
 Plug 'Yggdroot/indentLine'
+Plug 'scrooloose/nerdcommenter'
 
 call plug#end()
 
@@ -99,3 +100,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
+
+" put all vim tmp files in a common location
+set dir=~/.vim/_swap//
+set undodir=~/.vim/_undo/
