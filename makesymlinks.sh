@@ -26,7 +26,7 @@ makeSymLinks() {
   mkdir -p $olddir
   echo "done"
 
-  # change to teh dotfiles directory
+  # change to the dotfiles directory
   echo -n "Changing to the $dir directory ..."
   cd $dir
   echo "done"
@@ -39,6 +39,11 @@ makeSymLinks() {
     ln -s $dir/$file ~/.$file
   done
 }
+
+# install_brew() {
+#   if [ ! -f /usr/local/bin/brew ]; then
+
+# }
 
 install_zsh() {
 # Test if zshell is installed. If not then install it.
@@ -56,7 +61,7 @@ fi
 }
 
 confirm_zsh_default(){
-  if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
+  if [[ ! $(echo /usr/local$SHELL) == $(which zsh) ]]; then
     chsh -s $(which zsh)
   fi
 }

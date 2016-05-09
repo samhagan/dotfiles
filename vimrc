@@ -23,8 +23,11 @@ Plug 'pmsorhaindo/syntastic-local-eslint.vim'
 "Plug 'ntpeters/vim-better-whitespace'
 Plug 'Yggdroot/indentLine'
 Plug 'scrooloose/nerdcommenter'
+Plug 'flazz/vim-colorschemes'
 
 call plug#end()
+
+colorscheme molokai 
 
 set nocompatible
 set modelines=0
