@@ -18,6 +18,7 @@ main(){
   clone_OMZ
   confirm_zsh_default
   makeSymLinks
+  clone_spacemacs
 }
 
 makeSymLinks() {
@@ -53,6 +54,13 @@ if [[ ! -d $dir/oh-my-zsh/ ]]; then
   echo -n "cloning oh-my-zsh"
   git clone git@github.com:robbyrussell/oh-my-zsh.git 
 fi
+}
+
+clone_spacemacs() {
+  if [[ ! -f $dir/.emacs.d/spacemacs.mk ]]; then
+    echo -n "cloning spacemacs"
+    git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+  fi
 }
 
 confirm_zsh_default(){
