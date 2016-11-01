@@ -9,7 +9,7 @@
 
 dir=~/dotfiles          # dotfiles directory
 olddir=~/dotfiles_old   # old dotfiles backup directory
-files="bash_profile vimrc zshrc oh-my-zsh eslintrc"  # list of files to symlink in homedir
+files="zshrc oh-my-zsh eslintrc"  # list of files to symlink in homedir
 
 ###########
 
@@ -39,11 +39,6 @@ makeSymLinks() {
     ln -s $dir/$file ~/.$file
   done
 }
-
-# install_brew() {
-#   if [ ! -f /usr/local/bin/brew ]; then
-
-# }
 
 install_zsh() {
 # Test if zshell is installed. If not then install it.
