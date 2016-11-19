@@ -86,9 +86,4 @@ export PATH=$PATH:$GOPATH/bin
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ls='ls -GhA'
 
-codeAlias() {
-  code-insiders "$@"
-}
-
-alias code=codeAlias
 #source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
