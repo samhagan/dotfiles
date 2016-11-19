@@ -1,0 +1,18 @@
+[user]
+	email = samuel.hagan@gmail.com
+	name = Sam Hagan
+[color]
+	ui = true
+[core]
+	editor = code --wait
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+[color]
+	status = always
+[diff]
+    tool = default-difftool
+[difftool "default-difftool"]
+    cmd = code --wait --diff $LOCAL $REMOTE 
