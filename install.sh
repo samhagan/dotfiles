@@ -9,7 +9,7 @@
 
 dir=~/dotfiles          # dotfiles directory
 olddir=~/dotfiles_old   # old dotfiles backup directory
-files="zshrc oh-my-zsh gitconfig eslintrc"  # list of files to symlink in homedir
+files="zshrc oh-my-zsh gitconfig eslintrc tmux.conf"  # list of files to symlink in homedir
 
 ###########
 
