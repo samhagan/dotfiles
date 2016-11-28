@@ -26,9 +26,11 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'tomasr/molokai'
+" Plug 'tomasr/molokai'
 Plug 'neomake/neomake'
 Plug 'benjie/neomake-local-eslint.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'flazz/vim-colorschemes'
 call plug#end()
 
 "*****************************************************************************
@@ -51,6 +53,7 @@ set encoding=utf-8
 set relativenumber      " Show relative line numbers instead of absolute
 set splitbelow          " Splits show up below by default
 set splitright          " Splits go to the right by default
+set t_Co=256            " Use 256 colors
 
 " Search settings
 set hlsearch            " Highlight results
@@ -95,10 +98,10 @@ nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
+" inoremap <up> <nop>
+" inoremap <down> <nop>
+" inoremap <left> <nop>
+" inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
@@ -118,7 +121,10 @@ inoremap JK <esc>
 " Nerdtree
 map <C-n> :NERDTreeToggle <CR>
 
-" Turnon javascript linting
+" Turn on javascript linting
 let g:neomake_javascript_enabled_makers = ['eslint']
 autocmd! BufWritePost * Neomake
+
+" Turn on autcomplete
+let g:deoplete#enable_at_startup = 1
 
