@@ -43,7 +43,7 @@ set colorcolumn=100     " Highlight 80 character limit
 set hidden              " Allow buffers to be backgrounded without being saved
 set laststatus=2        " Always show the status bar
 set list                " Show invisible characters
-set listchars=tab:›\ ,eol:¬,space:⋅,trail:~  " Set the characters for invisibles
+set listchars=tab:›\ ,eol:¬,trail:~,space:·  " Set the characters for invisibles
 set number              " Display line numbers
 set ruler               " Show the line number and column in the status bar
 set showmatch           " Highlight matching braces
@@ -69,6 +69,7 @@ set shiftwidth=4        " Amount of spaces when shifting
 
 " GUI settings
 if has("nvim")
+    syntax enable
     colorscheme molokai
 endif
 

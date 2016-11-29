@@ -58,4 +58,5 @@ confirm_zsh_default(){
   fi
 }
 
-main
+# main
+makeSymLinks
