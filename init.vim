@@ -21,16 +21,16 @@ endif
 "" Plug install packages
 "*****************************************************************************
 call plug#begin(expand('~/.config/nvim/plugged'))
-"Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'tomasr/molokai'
 Plug 'neomake/neomake'
 Plug 'benjie/neomake-local-eslint.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'flazz/vim-colorschemes'
+Plug 'fatih/molokai'
+Plug 'fatih/vim-go'
 call plug#end()
 
 "*****************************************************************************
@@ -129,3 +129,11 @@ autocmd! BufWritePost * Neomake
 " Turn on autcomplete
 let g:deoplete#enable_at_startup = 1
 
+" go-vim
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"

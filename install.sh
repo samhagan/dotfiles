@@ -19,6 +19,7 @@ main(){
   clone_OMZ
   confirm_zsh_default
   makeSymLinks
+  install_tpm
 }
 
 makeSymLinks() {
@@ -45,6 +46,12 @@ if [ ! -f /bin/zsh -o -f /usr/bin/zsh ]; then
 fi
 }
 
+install_tpm(){
+  if [[ ! -d ~/.tmux/plugins ]]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  fi
+}
+
 clone_OMZ() {
 if [[ ! -d $dir/oh-my-zsh/ ]]; then
   echo -n "cloning oh-my-zsh"
@@ -58,5 +65,4 @@ confirm_zsh_default(){
   fi
 }
 
-# main
-makeSymLinks
+main
