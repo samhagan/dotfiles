@@ -29,7 +29,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'neomake/neomake'
 Plug 'benjie/neomake-local-eslint.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'fatih/molokai'
+" Plug 'flazz/vim-colorschemes'
 Plug 'fatih/vim-go'
 call plug#end()
 
@@ -137,3 +139,6 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
+
+" make autoread work as expected
+autocmd BufEnter,FocusGained * checktime
