@@ -86,4 +86,8 @@ alias zshconfig="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
 alias ls='ls -GhA'
 
+# use vim key bindings
+bindkey -v
+export KEYTIMEOUT=1
+
 #source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
