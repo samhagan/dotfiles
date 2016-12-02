@@ -32,7 +32,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'fatih/molokai'
 " Plug 'flazz/vim-colorschemes'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
