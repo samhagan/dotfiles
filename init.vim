@@ -3,6 +3,7 @@
 "*****************************************************************************
 if has('vim_starting')
   set nocompatible               " Be iMproved
+  set encoding=utf-8
 endif
 
 let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
@@ -34,6 +35,7 @@ Plug 'fatih/molokai'
 " Plug 'flazz/vim-colorschemes'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'elmcast/elm-vim'
 call plug#end()
 
 "*****************************************************************************
@@ -52,7 +54,6 @@ set ruler               " Show the line number and column in the status bar
 set showmatch           " Highlight matching braces
 set noshowmode          " Don't show the current mode on the open buffer
 set scrolloff=999       " Keep the cursor centered in the screen
-set encoding=utf-8
 set relativenumber      " Show relative line numbers instead of absolute
 set splitbelow          " Splits show up below by default
 set splitright          " Splits go to the right by default
