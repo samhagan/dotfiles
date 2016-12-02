@@ -1,12 +1,11 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/samhagan/.oh-my-zsh
 
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="mh"
+ZSH_THEME="flazz"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -50,7 +49,7 @@ ZSH_THEME="mh"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew npm)
+plugins=(git brew npm vi-mode)
 
 # User configuration
 
@@ -82,12 +81,11 @@ export PATH=$PATH:$GOPATH/bin
 # For a full list of active aliases, run `alias`.
 #
 # Custom aliases
-alias zshconfig="code ~/.zshrc"
-alias ohmyzsh="code ~/.oh-my-zsh"
+alias zshconfig="nvim ~/.zshrc"
+alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias ls='ls -GhA'
 
-# use vim key bindings
-bindkey -v
+# set the keytimeout so that vim mode is not laggy
 export KEYTIMEOUT=1
 
 #source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
