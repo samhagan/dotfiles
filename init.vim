@@ -33,6 +33,7 @@ Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'fatih/molokai'
 " Plug 'flazz/vim-colorschemes'
 Plug 'fatih/vim-go'
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 "*****************************************************************************
