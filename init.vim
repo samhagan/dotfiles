@@ -33,11 +33,10 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 "Plug 'fatih/molokai'
 "Plug 'flazz/vim-colorschemes'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+"Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'elmcast/elm-vim'
-Plug 'pangloss/vim-javascript'
 Plug 'morhetz/gruvbox'
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 "*****************************************************************************
@@ -74,10 +73,12 @@ set tabstop=4           " Tabs width in spaces
 set softtabstop=4       " Soft tab width in spaces
 set shiftwidth=4        " Amount of spaces when shifting
 
+filetype plugin indent on
+
 " GUI settings
 if has("nvim")
     syntax on
-    colorscheme gruvbox 
+    colorscheme gruvbox
     set background=dark
 endif
 
@@ -107,10 +108,6 @@ nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
-" inoremap <up> <nop>
-" inoremap <down> <nop>
-" inoremap <left> <nop>
-" inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
@@ -152,3 +149,4 @@ autocmd BufEnter,FocusGained * checktime
 
 " make ctrl p ignore files
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|dist\|build'
+
