@@ -31,16 +31,19 @@ Plug 'neomake/neomake'
 Plug 'benjie/neomake-local-eslint.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
-Plug 'fatih/molokai'
-" Plug 'flazz/vim-colorschemes'
+"Plug 'fatih/molokai'
+"Plug 'flazz/vim-colorschemes'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'elmcast/elm-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 "*****************************************************************************
 "" Basic Options 
 "*****************************************************************************
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let mapleader=";"       " The <leader> key
 set backspace=2         " Makes backspace work like expected
 set autoread            " Reload files that have not been modified
@@ -57,7 +60,7 @@ set scrolloff=999       " Keep the cursor centered in the screen
 set relativenumber      " Show relative line numbers instead of absolute
 set splitbelow          " Splits show up below by default
 set splitright          " Splits go to the right by default
-set t_Co=256            " Use 256 colors
+"set t_Co=256            " Use 256 colors
 
 " Search settings
 set hlsearch            " Highlight results
@@ -73,8 +76,9 @@ set shiftwidth=4        " Amount of spaces when shifting
 
 " GUI settings
 if has("nvim")
-    syntax enable
-    colorscheme molokai
+    syntax on
+    colorscheme gruvbox 
+    set background=dark
 endif
 
 " Backup settings
@@ -145,3 +149,6 @@ let g:go_gocode_unimported_packages = 1
 
 " make autoread work as expected, sortof
 autocmd BufEnter,FocusGained * checktime
+
+" make ctrl p ignore files
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|dist\|build'
