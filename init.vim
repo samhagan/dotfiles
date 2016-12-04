@@ -31,12 +31,11 @@ Plug 'neomake/neomake'
 Plug 'benjie/neomake-local-eslint.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
-"Plug 'fatih/molokai'
 "Plug 'flazz/vim-colorschemes'
-"Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'morhetz/gruvbox'
 Plug 'sheerun/vim-polyglot'
+Plug 'elmcast/elm-vim'
 call plug#end()
 
 "*****************************************************************************
@@ -108,6 +107,10 @@ nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
@@ -148,5 +151,7 @@ let g:go_gocode_unimported_packages = 1
 autocmd BufEnter,FocusGained * checktime
 
 " make ctrl p ignore files
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|dist\|build'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|dist\|build\|elm-stuff'
 
+" disable vim-polyglot packages where we use something different
+let g:polyglot_disabled = ['elm']
