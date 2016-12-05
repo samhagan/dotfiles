@@ -36,6 +36,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'morhetz/gruvbox'
 Plug 'sheerun/vim-polyglot'
 Plug 'elmcast/elm-vim'
+Plug 'ap/vim-buftabline'
 call plug#end()
 
 "*****************************************************************************
@@ -92,6 +93,13 @@ set writebackup
 "*****************************************************************************
 "" Key Mappings
 "*****************************************************************************
+" Shortcut to yanking to the system clipboard
+map <leader>y "*y
+map <leader>p "*p
+
+" buffer navigation
+nnoremap <C-N> :bnext<CR>
+nnoremap <C-P> :bprev<CR>
 
 " Get rid of search highlighting
 noremap <silent><leader>/ :nohlsearch<CR>

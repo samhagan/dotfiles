@@ -20,6 +20,7 @@ main(){
   confirm_zsh_default
   makeSymLinks
   install_tpm
+  install_copyFix
 }
 
 makeSymLinks() {
@@ -44,6 +45,12 @@ if [ ! -f /bin/zsh -o -f /usr/bin/zsh ]; then
   echo -n "Installing zsh via homebrew"
   brew install zsh
 fi
+}
+
+install_copyFix() {
+    if [[ ! -f /usr/local/bin/reattach-to-user-namespace ]]; then
+        brew install reattach-to-user-namespace
+    fi
 }
 
 install_tpm(){
