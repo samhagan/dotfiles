@@ -37,6 +37,7 @@ Plug 'morhetz/gruvbox'
 Plug 'sheerun/vim-polyglot'
 Plug 'elmcast/elm-vim'
 Plug 'ap/vim-buftabline'
+Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 "*****************************************************************************
@@ -98,8 +99,8 @@ map <leader>y "*y
 map <leader>p "*p
 
 " buffer navigation
-nnoremap <C-N> :bnext<CR>
-nnoremap <C-P> :bprev<CR>
+nnoremap <C-x> :bnext<CR>
+nnoremap <C-z> :bprev<CR>
 
 " Get rid of search highlighting
 noremap <silent><leader>/ :nohlsearch<CR>
@@ -160,6 +161,19 @@ autocmd BufEnter,FocusGained * checktime
 
 " make ctrl p ignore files
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|dist\|build\|elm-stuff'
+let g:ctrlp_show_hidden = 1
 
 " disable vim-polyglot packages where we use something different
 let g:polyglot_disabled = ['elm']
+
+
+"*****************************************************************************
+"" File Type Settings
+"*****************************************************************************
+
+au BufNewFile,BufRead *.vim setlocal noet ts=4 sw=4 sts=4
+au BufNewFile,BufRead *.txt setlocal noet ts=4 sw=4
+au BufNewFile,BufRead *.md setlocal spell noet ts=4 sw=4
+au BufNewFile,BufRead *.yml,*.yaml setlocal expandtab ts=2 sw=2
+au BufNewFile,BufRead *.json setlocal expandtab ts=2 sw=2
+au BufNewFile,BufRead *.js,*.jsx setlocal expandtab ts=2 sw=2
