@@ -2,7 +2,7 @@
 "" Vim-PLug core
 "*****************************************************************************
 if has('vim_starting')
-  set nocompatible               " Be iMproved
+  set nocompatible				 " Be iMproved
   set encoding=utf-8
 endif
 
@@ -34,53 +34,59 @@ Plug 'zchee/deoplete-go', { 'do': 'make'}
 "Plug 'flazz/vim-colorschemes'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'morhetz/gruvbox'
-Plug 'sheerun/vim-polyglot'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'elmcast/elm-vim'
 Plug 'ap/vim-buftabline'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'Raimondi/delimitMate'
+Plug 'majutsushi/tagbar'
+Plug 'moll/vim-bbye'
 call plug#end()
 
 "*****************************************************************************
 "" Basic Options 
 "*****************************************************************************
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-let mapleader=";"       " The <leader> key
-set backspace=2         " Makes backspace work like expected
-set autoread            " Reload files that have not been modified
-set colorcolumn=100     " Highlight 80 character limit
-set hidden              " Allow buffers to be backgrounded without being saved
-set laststatus=2        " Always show the status bar
-set list                " Show invisible characters
+let mapleader=";"		" The <leader> key
+set backspace=2			" Makes backspace work like expected
+set autoread			" Reload files that have not been modified
+set autowrite			" Automatically save before :next or :make
+set colorcolumn=100		" Highlight 80 character limit
+set hidden				" Allow buffers to be backgrounded without being saved
+set laststatus=2		" Always show the status bar
+set list				" Show invisible characters
 set listchars=tab:›\ ,eol:¬,trail:~,space:· "Set the characters for invisibles
-set number              " Display line numbers
-set ruler               " Show the line number and column in the status bar
-set showmatch           " Highlight matching braces
-set noshowmode          " Don't show the current mode on the open buffer
-set scrolloff=999       " Keep the cursor centered in the screen
-set relativenumber      " Show relative line numbers instead of absolute
-set splitbelow          " Splits show up below by default
-set splitright          " Splits go to the right by default
-"set t_Co=256            " Use 256 colors
+set number				" Display line numbers
+set ruler				" Show the line number and column in the status bar
+set showmatch			" Highlight matching braces
+set noshowmode			" Don't show the current mode on the open buffer
+set scrolloff=999		" Keep the cursor centered in the screen
+set relativenumber		" Show relative line numbers instead of absolute
+set splitbelow			" Splits show up below by default
+set splitright			" Splits go to the right by default
+"set t_Co=256			" Use 256 colors
+
+au FocusLost * :wa		" Set vim to save the file on focus out.
 
 " Search settings
-set hlsearch            " Highlight results
-set ignorecase          " Ignore casing of searches
-set incsearch           " Start showing results as you type
-set smartcase           " Related to case sensitivity
+set hlsearch			" Highlight results
+set ignorecase			" Ignore casing of searches
+set incsearch			" Start showing results as you type
+set smartcase			" Related to case sensitivity
 
 " Tab settings
-set expandtab           " Expand tabs to the proper type and size
-set tabstop=4           " Tabs width in spaces
-set softtabstop=4       " Soft tab width in spaces
-set shiftwidth=4        " Amount of spaces when shifting
+set expandtab			" Expand tabs to the proper type and size
+set tabstop=4			" Tabs width in spaces
+set softtabstop=4		" Soft tab width in spaces
+set shiftwidth=4		" Amount of spaces when shifting
 
 filetype plugin indent on
 
 " GUI settings
 if has("nvim")
-    syntax on
-    colorscheme gruvbox
-    set background=dark
+	syntax on
+	colorscheme gruvbox
+	set background=dark
 endif
 
 " Backup settings
