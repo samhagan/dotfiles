@@ -23,7 +23,8 @@ endif
 "*****************************************************************************
 call plug#begin(expand('~/.config/nvim/plugged'))
 Plug 'scrooloose/nerdtree'
-Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -41,10 +42,14 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
 Plug 'moll/vim-bbye'
+Plug 'othree/yajs.vim'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 "*****************************************************************************
-"" Basic Options 
+"" Basic Options
 "*****************************************************************************
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let mapleader=";"		" The <leader> key
@@ -143,7 +148,16 @@ inoremap JK <esc>
 "" Plugin Options
 "*****************************************************************************
 " Nerdtree
-map <C-n> :NERDTreeToggle <CR>
+nmap <C-n> :NERDTreeToggle<CR>
+noremap <Leader>n :NERDTreeFocus<cr>
+noremap <Leader>f :NERDTreeFind<cr>
+
+let NERDTreeShowHidden=1
+
+let NERDTreeIgnore=['\.vim$', '\~$', '\.git$', '.DS_Store']
+
+" Close nerdtree and vim on close file
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " Turn on javascript linting
 let g:neomake_javascript_enabled_makers = ['eslint']
@@ -167,8 +181,15 @@ autocmd BufEnter,FocusGained * checktime
 
 " make ctrl p ignore files
 "let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|dist\|build\|elm-stuff'
-let g:ctrlp_show_hidden = 1
+"let g:ctrlp_show_hidden = 1
+"FZF
+nnoremap <C-p> :GitFiles<CR>
+nnoremap <Leader>b :Buffers<CR>
 
+" vim-better-whitespace
+" auto strip whitespace except for file with extention blacklisted
+let blacklist = ['markdown', 'md']
+autocmd BufWritePre * StripWhitespace
 
 "*****************************************************************************
 "" File Type Settings

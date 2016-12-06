@@ -89,3 +89,5 @@ alias ls='ls -GhA'
 export KEYTIMEOUT=1
 
 #source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
