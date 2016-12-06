@@ -166,11 +166,8 @@ let g:go_gocode_unimported_packages = 1
 autocmd BufEnter,FocusGained * checktime
 
 " make ctrl p ignore files
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|dist\|build\|elm-stuff'
+"let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|dist\|build\|elm-stuff'
 let g:ctrlp_show_hidden = 1
-
-" disable vim-polyglot packages where we use something different
-let g:polyglot_disabled = ['elm']
 
 
 "*****************************************************************************
@@ -183,3 +180,25 @@ au BufNewFile,BufRead *.md setlocal spell noet ts=4 sw=4
 au BufNewFile,BufRead *.yml,*.yaml setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.json setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.js,*.jsx setlocal expandtab ts=2 sw=2
+
+" spell check for git commits
+autocmd FileType gitcommit setlocal spell
+
+" Wildmenu completion {{{
+set wildmenu
+set wildmode=list:full
+
+set wildignore+=.hg,.git,.svn					 " Version control
+set wildignore+=*.aux,*.out,*.toc				 " LaTeX intermediate files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg	 " binary images
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
+set wildignore+=*.spl							 " compiled spelling word lists
+set wildignore+=*.sw?							 " Vim swap files
+set wildignore+=*.DS_Store						 " OSX bullshit
+set wildignore+=node_modules					" node stuff
+set wildignore+=go/pkg							" Go static files
+set wildignore+=go/bin							" Go bin files
+set wildignore+=go/bin-vagrant					" Go bin-vagrant files
+set wildignore+=*.pyc							" Python byte code
+set wildignore+=*.orig							" Merge resolution files
+set wildignore+=elm_stuff                       " elm
