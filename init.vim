@@ -64,6 +64,10 @@ set scrolloff=999		" Keep the cursor centered in the screen
 set relativenumber		" Show relative line numbers instead of absolute
 set splitbelow			" Splits show up below by default
 set splitright			" Splits go to the right by default
+set noerrorbells		" No beeps
+set noswapfile			" Don't use swapfile
+set nobackup			" Don't create annoying backup files
+set nowritebackup
 "set t_Co=256			" Use 256 colors
 
 au FocusLost * :wa		" Set vim to save the file on focus out.
@@ -90,12 +94,8 @@ if has("nvim")
 endif
 
 " Backup settings
-set directory=~/nvim/swap
-set backupdir=~/nvim/backup
 set undodir=~/nvim/undo
-set backup
 set undofile
-set writebackup
 
 "*****************************************************************************
 "" Key Mappings
