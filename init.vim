@@ -23,7 +23,6 @@ endif
 "*****************************************************************************
 call plug#begin(expand('~/.config/nvim/plugged'))
 Plug 'scrooloose/nerdtree'
-"Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
@@ -75,7 +74,7 @@ set nobackup			" Don't create annoying backup files
 set nowritebackup
 "set t_Co=256			" Use 256 colors
 
-au FocusLost * :wa		" Set vim to save the file on focus out.
+au BufLeave,FocusLost * silent! wall	" Set vim to save the file on focus out.
 
 " Search settings
 set hlsearch			" Highlight results
@@ -159,6 +158,11 @@ let NERDTreeIgnore=['\.vim$', '\~$', '\.git$', '.DS_Store']
 " Close nerdtree and vim on close file
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
+" enable line numbers
+let NERDTreeShowLineNumbers=1
+" make sure relative line numbers are used
+autocmd FileType nerdtree setlocal relativenumber
+
 " Turn on javascript linting
 let g:neomake_javascript_enabled_makers = ['eslint']
 autocmd! BufWritePost * Neomake
@@ -184,7 +188,9 @@ autocmd BufEnter,FocusGained * checktime
 "let g:ctrlp_show_hidden = 1
 "FZF
 nnoremap <C-p> :GitFiles<CR>
+nnoremap <Leader>g :Files<CR>
 nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>l :Lines<CR>
 
 " vim-better-whitespace
 " auto strip whitespace except for file with extention blacklisted
