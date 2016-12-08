@@ -45,6 +45,7 @@ Plug 'othree/yajs.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'junegunn/fzf.vim'
+Plug 'othree/es.next.syntax.vim'
 call plug#end()
 
 "*****************************************************************************
@@ -149,11 +150,15 @@ inoremap JK <esc>
 " Nerdtree
 nmap <C-n> :NERDTreeToggle<CR>
 noremap <Leader>n :NERDTreeFocus<cr>
-noremap <Leader>f :NERDTreeFind<cr>
+"noremap <Leader>nf :NERDTreeFind<cr>
 
-let NERDTreeShowHidden=1
-
-let NERDTreeIgnore=['\.vim$', '\~$', '\.git$', '.DS_Store']
+let NERDTreeShowHidden = 1
+let NERDTreeQuitOnOpen = 1
+let NERDTreeWinSize = 30
+let NERDTreeMinimalUI = 1
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeDirArrows = 1
+let NERDTreeIgnore = ['\~$', '\.git$', '.DS_Store']
 
 " Close nerdtree and vim on close file
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -183,12 +188,9 @@ let g:go_gocode_unimported_packages = 1
 " make autoread work as expected, sortof
 autocmd BufEnter,FocusGained * checktime
 
-" make ctrl p ignore files
-"let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|dist\|build\|elm-stuff'
-"let g:ctrlp_show_hidden = 1
 "FZF
 nnoremap <C-p> :GitFiles<CR>
-nnoremap <Leader>g :Files<CR>
+nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>l :Lines<CR>
 
