@@ -134,7 +134,7 @@ inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
-" Some better exit commands
+" Some better exit commands; disable escape key
 inoremap jj <esc>
 inoremap jJ <esc>
 inoremap Jj <esc>
@@ -143,7 +143,7 @@ inoremap jk <esc>
 inoremap jK <esc>
 inoremap Jk <esc>
 inoremap JK <esc>
-
+inoremap <esc> <nop>
 "*****************************************************************************
 "" Plugin Options
 "*****************************************************************************
@@ -193,11 +193,17 @@ nnoremap <C-p> :GitFiles<CR>
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>l :Lines<CR>
+" give us a nice Find command
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 
 " vim-better-whitespace
 " auto strip whitespace except for file with extention blacklisted
 let blacklist = ['markdown', 'md']
 autocmd BufWritePre * StripWhitespace
+
+" elm-vim
+let g:elm_format_autosave = 1
+let g:elm_setup_keybindings = 0
 
 "*****************************************************************************
 "" File Type Settings
@@ -231,3 +237,4 @@ set wildignore+=go/bin-vagrant					" Go bin-vagrant files
 set wildignore+=*.pyc							" Python byte code
 set wildignore+=*.orig							" Merge resolution files
 set wildignore+=elm_stuff                       " elm
+
