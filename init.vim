@@ -46,6 +46,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'junegunn/fzf.vim'
 Plug 'othree/es.next.syntax.vim'
+Plug 'mxw/vim-jsx'
+Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 call plug#end()
 
 "*****************************************************************************
@@ -189,10 +192,23 @@ let g:go_gocode_unimported_packages = 1
 autocmd BufEnter,FocusGained * checktime
 
 "FZF
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+omap <leader><tab> <plug>(fzf-maps-o)
+xmap <leader><tab> <plug>(fzf-maps-x)
+
+" insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
 nnoremap <C-p> :GitFiles<CR>
-nnoremap <Leader>f :Files<CR>
-nnoremap <Leader>b :Buffers<CR>
-nnoremap <Leader>l :Lines<CR>
+nnoremap <Leader>ff :Files<CR>
+nnoremap <Leader>fh :History<CR>
+nnoremap <Leader>bb :Buffers<CR>
+nnoremap <Leader>ll :Lines<CR>
+nnoremap <Leader>lb :BLines<CR>
 " give us a nice Find command
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 
@@ -204,6 +220,9 @@ autocmd BufWritePre * StripWhitespace
 " elm-vim
 let g:elm_format_autosave = 1
 let g:elm_setup_keybindings = 0
+
+" vim-jsx
+let g:jsx_ext_required = 0
 
 "*****************************************************************************
 "" File Type Settings
