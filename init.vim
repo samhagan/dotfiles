@@ -40,13 +40,14 @@ Plug 'ap/vim-buftabline'
 Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
 Plug 'moll/vim-bbye'
-Plug 'othree/yajs.vim'
+"Plug 'othree/yajs.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'junegunn/fzf.vim'
-Plug 'othree/es.next.syntax.vim'
+"Plug 'othree/es.next.syntax.vim'
 "Plug 'mxw/vim-jsx'
-Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+"Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'pangloss/vim-javascript'
 call plug#end()
 
 "*****************************************************************************
