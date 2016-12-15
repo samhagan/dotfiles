@@ -31,7 +31,6 @@ Plug 'neomake/neomake'
 Plug 'benjie/neomake-local-eslint.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
-"Plug 'flazz/vim-colorschemes'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'morhetz/gruvbox'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
@@ -40,14 +39,11 @@ Plug 'ap/vim-buftabline'
 Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
 Plug 'moll/vim-bbye'
-"Plug 'othree/yajs.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'junegunn/fzf.vim'
-"Plug 'othree/es.next.syntax.vim'
-"Plug 'mxw/vim-jsx'
-"Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 call plug#end()
 
 "*****************************************************************************
@@ -221,7 +217,7 @@ let g:elm_format_autosave = 1
 let g:elm_setup_keybindings = 0
 
 " vim-jsx
-" let g:jsx_ext_required = 0
+let g:jsx_ext_required = 0
 
 "*****************************************************************************
 "" File Type Settings
