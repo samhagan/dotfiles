@@ -37,7 +37,6 @@ Plug 'morhetz/gruvbox'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'elmcast/elm-vim'
 Plug 'ap/vim-buftabline'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
 Plug 'moll/vim-bbye'
@@ -46,9 +45,8 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'junegunn/fzf.vim'
 Plug 'othree/es.next.syntax.vim'
-Plug 'mxw/vim-jsx'
+"Plug 'mxw/vim-jsx'
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 call plug#end()
 
 "*****************************************************************************
@@ -222,7 +220,7 @@ let g:elm_format_autosave = 1
 let g:elm_setup_keybindings = 0
 
 " vim-jsx
-let g:jsx_ext_required = 0
+" let g:jsx_ext_required = 0
 
 "*****************************************************************************
 "" File Type Settings
@@ -255,5 +253,5 @@ set wildignore+=go/bin							" Go bin files
 set wildignore+=go/bin-vagrant					" Go bin-vagrant files
 set wildignore+=*.pyc							" Python byte code
 set wildignore+=*.orig							" Merge resolution files
-set wildignore+=elm_stuff                       " elm
+set wildignore+=elm_stuff						" elm
 
