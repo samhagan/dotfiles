@@ -43,7 +43,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'junegunn/fzf.vim'
 Plug 'pangloss/vim-javascript'
+Plug 'jelera/vim-javascript-syntax'
 Plug 'mxw/vim-jsx'
+Plug 'suan/vim-instant-markdown'
 call plug#end()
 
 "*****************************************************************************
@@ -218,6 +220,9 @@ let g:elm_setup_keybindings = 0
 
 " vim-jsx
 let g:jsx_ext_required = 0
+
+" markdown preview
+let g:instant_markdown_autostart = 0
 
 "*****************************************************************************
 "" File Type Settings
