@@ -29,7 +29,7 @@ makeSymLinks() {
   cd $dir
   echo "done"
 
-  # symlink the files, we just force it if needed 
+  # symlink the files, we just force it if needed
   for file in $files; do
     echo "Creating symlink to $file in home directory"
     ln -sf $dir/$file ~/.$file
@@ -62,7 +62,7 @@ install_tpm(){
 clone_OMZ() {
 if [[ ! -d $dir/oh-my-zsh/ ]]; then
   echo -n "cloning oh-my-zsh"
-  git clone git@github.com:robbyrussell/oh-my-zsh.git 
+  git clone git@github.com:robbyrussell/oh-my-zsh.git
 fi
 }
 
