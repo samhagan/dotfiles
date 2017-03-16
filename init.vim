@@ -46,6 +46,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'mxw/vim-jsx'
 Plug 'suan/vim-instant-markdown'
+Plug 'vim-scripts/groovy.vim'
 call plug#end()
 
 "*****************************************************************************
