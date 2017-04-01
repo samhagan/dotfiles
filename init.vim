@@ -33,6 +33,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'morhetz/gruvbox'
+Plug 'chriskempson/base16-vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'elmcast/elm-vim'
 Plug 'ap/vim-buftabline'
@@ -43,7 +44,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'junegunn/fzf.vim'
 Plug 'pangloss/vim-javascript'
-Plug 'jelera/vim-javascript-syntax'
+"Plug 'jelera/vim-javascript-syntax'
 Plug 'mxw/vim-jsx'
 Plug 'suan/vim-instant-markdown'
 Plug 'vim-scripts/groovy.vim'
@@ -52,7 +53,7 @@ call plug#end()
 "*****************************************************************************
 "" Basic Options
 "*****************************************************************************
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let mapleader=";"		" The <leader> key
 set backspace=2			" Makes backspace work like expected
 set autoread			" Reload files that have not been modified
@@ -95,7 +96,7 @@ filetype plugin indent on
 " GUI settings
 if has("nvim")
 	syntax on
-	colorscheme gruvbox
+	colorscheme base16-oceanicnext
 	set background=dark
 endif
 
