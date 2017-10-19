@@ -17,6 +17,7 @@ if !filereadable(vimplug_exists)
   autocmd VimEnter * PlugInstall
 endif
 
+set mouse=a
 
 "*****************************************************************************
 "" Plug install packages
@@ -27,8 +28,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'neomake/neomake'
-Plug 'benjie/neomake-local-eslint.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'christoomey/vim-tmux-navigator'
@@ -48,6 +47,10 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'suan/vim-instant-markdown'
 Plug 'vim-scripts/groovy.vim'
+Plug 'w0rp/ale'
+Plug 'ruanyl/vim-fixmyjs'
+Plug 'tpope/vim-fugitive'
+Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 "*****************************************************************************
@@ -77,7 +80,7 @@ set nobackup			" Don't create annoying backup files
 set nowritebackup
 "set t_Co=256			" Use 256 colors
 
-au BufLeave,FocusLost * silent! wall	" Set vim to save the file on focus out.
+" au BufLeave,FocusLost * silent! wall	" Set vim to save the file on focus out.
 
 " Search settings
 set hlsearch			" Highlight results
@@ -170,9 +173,14 @@ let NERDTreeShowLineNumbers=1
 " make sure relative line numbers are used
 autocmd FileType nerdtree setlocal relativenumber
 
-" Turn on javascript linting
-let g:neomake_javascript_enabled_makers = ['eslint']
-autocmd! BufWritePost * Neomake
+" ALE Settings
+"let g:ale_fixers = {}
+"let g:ale_fixers.javascript = ['eslint']
+"let g:ale_fix_on_save = 1
+
+" run eslint on save
+let g:fixmyjs_use_local = 1
+noremap <Leader><Leader>f :Fixmyjs<CR>
 
 " Turn on autcomplete
 let g:deoplete#enable_at_startup = 1
