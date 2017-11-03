@@ -1,5 +1,5 @@
 [user]
-	email = samuel.hagan@gmail.com
+	email = sam.hagan@nfl.com
 	name = Sam Hagan
 [color]
 	ui = true
@@ -12,3 +12,5 @@
 	br = branch
 [color]
 	status = always
+[mergetool]
+	path = nvim

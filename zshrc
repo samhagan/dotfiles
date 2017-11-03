@@ -1,5 +1,11 @@
+export PATH=$PATH:/Users/sam.hagan/apps/nfl-phabricator/arcanist/bin
+# export PATH="$HOME/.yarn/bin:$PATH"
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+
+export EDITOR=nvim
+
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/samhagan/.oh-my-zsh
+export ZSH=/Users/sam.hagan/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -49,7 +55,7 @@ ZSH_THEME="flazz"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew npm vi-mode)
+plugins=(git npm vi-mode)
 
 # User configuration
 
@@ -73,12 +79,6 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -96,4 +96,4 @@ export KEYTIMEOUT=1
 
 #FZF setup
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+#export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
