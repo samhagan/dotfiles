@@ -20,7 +20,7 @@ main(){
   confirm_zsh_default
   makeSymLinks
   install_tpm
-  install_copyFix
+  #install_copyFix
 }
 
 makeSymLinks() {
