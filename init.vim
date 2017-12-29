@@ -17,7 +17,6 @@ if !filereadable(vimplug_exists)
   autocmd VimEnter * PlugInstall
 endif
 
-
 "*****************************************************************************
 "" Plug install packages
 "*****************************************************************************
@@ -27,8 +26,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'neomake/neomake'
-Plug 'benjie/neomake-local-eslint.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'christoomey/vim-tmux-navigator'
@@ -48,6 +45,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'suan/vim-instant-markdown'
 Plug 'vim-scripts/groovy.vim'
+Plug 'w0rp/ale'
 call plug#end()
 
 "*****************************************************************************
@@ -75,7 +73,7 @@ set noerrorbells		" No beeps
 set noswapfile			" Don't use swapfile
 set nobackup			" Don't create annoying backup files
 set nowritebackup
-"set t_Co=256			" Use 256 colors
+set mouse=a				" let mouse scroll work
 
 au BufLeave,FocusLost * silent! wall	" Set vim to save the file on focus out.
 
@@ -96,6 +94,7 @@ filetype plugin indent on
 " GUI settings
 if has("nvim")
 	syntax on
+	let base16colorspace=256
 	colorscheme base16-oceanicnext
 	set background=dark
 endif
@@ -170,9 +169,12 @@ let NERDTreeShowLineNumbers=1
 " make sure relative line numbers are used
 autocmd FileType nerdtree setlocal relativenumber
 
-" Turn on javascript linting
-let g:neomake_javascript_enabled_makers = ['eslint']
-autocmd! BufWritePost * Neomake
+" ALE config
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\}
+let g:ale_fix_on_save = 1
+let g:airline#extensions#ale#enabled = 1
 
 " Turn on autcomplete
 let g:deoplete#enable_at_startup = 1
