@@ -97,10 +97,16 @@ set shiftwidth=4		" Amount of spaces when shifting
 filetype plugin indent on
 
 " GUI settings
+if filereadable(expand("~/.vimrc_background"))
+	let base16colorspace=256
+	source ~/.vimrc_background
+endif
+
 if has("nvim")
 	syntax on
-	colorscheme base16-oceanicnext
-	set background=dark
+	"colorscheme base16-oceanicnext
+	"set background=dark
+	"let base16colorspace=256
 endif
 
 " Backup settings
@@ -111,8 +117,8 @@ set undofile
 "" Key Mappings
 "*****************************************************************************
 " Shortcut to yanking to the system clipboard
-map <leader>y "*y
-map <leader>p "*p
+map <leader>y "+y
+map <leader>p "+p
 
 " buffer navigation
 nnoremap <C-x> :bnext<CR>
