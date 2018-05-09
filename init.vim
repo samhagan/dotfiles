@@ -51,6 +51,7 @@ Plug 'w0rp/ale'
 Plug 'ruanyl/vim-fixmyjs'
 Plug 'tpope/vim-fugitive'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'hashivim/vim-terraform'
 call plug#end()
 
 "*****************************************************************************
@@ -190,6 +191,14 @@ noremap <Leader><Leader>f :Fixmyjs<CR>
 
 " Turn on autcomplete
 let g:deoplete#enable_at_startup = 1
+
+" buftabline
+let g:buftabline_indicators = 1
+let g:buftabline_numbers = 1
+
+" vim-terraform
+let g:terraform_align = 1
+let g:terraform_fmt_on_save = 1
 
 " go-vim
 let g:go_highlight_functions = 1
