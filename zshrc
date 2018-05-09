@@ -49,7 +49,7 @@ ZSH_THEME="flazz"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git npm vi-mode)
+plugins=(git vi-mode)
 
 # User configuration
 
@@ -97,3 +97,8 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 #FZF setup
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+
+# virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source ~/.local/bin/virtualenvwrapper.sh
