@@ -31,7 +31,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'morhetz/gruvbox'
+"Plug 'morhetz/gruvbox'
 Plug 'chriskempson/base16-vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'elmcast/elm-vim'
@@ -51,6 +51,8 @@ Plug 'w0rp/ale'
 Plug 'ruanyl/vim-fixmyjs'
 Plug 'tpope/vim-fugitive'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'hashivim/vim-terraform'
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 "*****************************************************************************
@@ -78,9 +80,6 @@ set noerrorbells		" No beeps
 set noswapfile			" Don't use swapfile
 set nobackup			" Don't create annoying backup files
 set nowritebackup
-"set t_Co=256			" Use 256 colors
-
-" au BufLeave,FocusLost * silent! wall	" Set vim to save the file on focus out.
 
 " Search settings
 set hlsearch			" Highlight results
@@ -177,6 +176,8 @@ autocmd FileType nerdtree setlocal relativenumber
 "let g:ale_fixers = {}
 "let g:ale_fixers.javascript = ['eslint']
 "let g:ale_fix_on_save = 1
+let g:ale_linters = {'rust': ['rls']}
+let g:ale_rust_rls_toolchain = 'stable'
 
 " run eslint on save
 let g:fixmyjs_use_local = 1
@@ -184,6 +185,14 @@ noremap <Leader><Leader>f :Fixmyjs<CR>
 
 " Turn on autcomplete
 let g:deoplete#enable_at_startup = 1
+
+" buftabline
+let g:buftabline_indicators = 1
+let g:buftabline_numbers = 1
+
+" vim-terraform
+let g:terraform_align=1
+let g:terraform_fmt_on_save=1
 
 " go-vim
 let g:go_highlight_functions = 1
@@ -244,6 +253,7 @@ au BufNewFile,BufRead *.md setlocal spell noet ts=4 sw=4
 au BufNewFile,BufRead *.yml,*.yaml setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.json setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.js,*.jsx setlocal expandtab ts=2 sw=2
+au BufNewFile,BufRead Jenkinsfile setf groovy
 
 " spell check for git commits
 autocmd FileType gitcommit setlocal spell
