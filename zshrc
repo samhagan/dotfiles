@@ -97,3 +97,6 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 #FZF setup
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+
+# bazel stuff
+export PATH=$PATH:$HOME/bin

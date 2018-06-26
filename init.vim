@@ -52,6 +52,7 @@ Plug 'ruanyl/vim-fixmyjs'
 Plug 'tpope/vim-fugitive'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'hashivim/vim-terraform'
+Plug 'leafgarland/typescript-vim'
 call plug#end()
 
 "*****************************************************************************
@@ -259,6 +260,7 @@ au BufNewFile,BufRead *.md setlocal spell noet ts=4 sw=4
 au BufNewFile,BufRead *.yml,*.yaml setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.json setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.js,*.jsx setlocal expandtab ts=2 sw=2
+au BufNewFile,BufRead *.bazel setlocal syntax=bzl
 
 " spell check for git commits
 autocmd FileType gitcommit setlocal spell
