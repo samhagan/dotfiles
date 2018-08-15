@@ -73,7 +73,7 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-export GOPATH=$HOME/go
+export GOPATH=$HOME/work/dossier/go
 export PATH=$PATH:$GOPATH/bin
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -102,3 +102,6 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.g
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 source ~/.local/bin/virtualenvwrapper.sh
+
+# get adams k8s stuff
+source ~/k8sbash/k8s_bashrc.sh
