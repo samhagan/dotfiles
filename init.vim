@@ -53,6 +53,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'hashivim/vim-terraform'
 Plug 'leafgarland/typescript-vim'
+Plug 'elixir-editors/vim-elixir'
 call plug#end()
 
 "*****************************************************************************
@@ -182,13 +183,10 @@ let NERDTreeShowLineNumbers=1
 autocmd FileType nerdtree setlocal relativenumber
 
 " ALE Settings
-"let g:ale_fixers = {}
-"let g:ale_fixers.javascript = ['eslint']
-"let g:ale_fix_on_save = 1
-
-" run eslint on save
-let g:fixmyjs_use_local = 1
-noremap <Leader><Leader>f :Fixmyjs<CR>
+let g:ale_fixers = {}
+let g:ale_fixers.javascript = ['eslint']
+let g:ale_fixers.elixir = ['mix_format']
+let g:ale_fix_on_save = 1
 
 " Turn on autcomplete
 let g:deoplete#enable_at_startup = 1

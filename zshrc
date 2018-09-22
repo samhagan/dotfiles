@@ -76,6 +76,9 @@ source $ZSH/oh-my-zsh.sh
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+# npm global shit
+export PATH=$PATH:$HOME/.npm-global/bin
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -100,3 +103,12 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.g
 
 # bazel stuff
 export PATH=$PATH:$HOME/bin
+
+# python stuff
+export WORKON_HOME=\$HOME/.virtualenvs
+export PROJECT_HOME=\$HOME/Devel
+source ~/.local/bin/virtualenvwrapper.sh
+
+# k8s aliases
+source ~/k8sbash/k8s_bashrc.sh
+
