@@ -259,6 +259,7 @@ au BufNewFile,BufRead *.yml,*.yaml setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.json setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.js,*.jsx setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.bazel setlocal syntax=bzl
+au BufNewFile,BufRead *.sh setlocal expandtab ts=2 sw=2
 
 " spell check for git commits
 autocmd FileType gitcommit setlocal spell

@@ -1,14 +1,9 @@
-#!/bin/bash -e
-##############################
-# .make.sh
-# This script creates symlinks from the home directory to the dotfiles directory
-# http://blog.smalleycreative.com/tutorials/using-git-and-github-to-manage-your-dotfiles/
-##############################
+#!/bin/bash
+set -euo pipefail
 
 ########### Variables
-
-dir=~/dotfiles          			
-nvim=~/.config/nvim				
+dir=~/dotfiles
+nvim=~/.config/nvim
 nvimInit="init.vim"
 
 # list of files to symlink to the home directory
@@ -19,48 +14,68 @@ home_files=(
   tmux.conf
 )
 
-###########
+# list of programs to confirm are installed
+requirements=(
+  git
+  tmux
+)
 
-main(){
+###########
+main()
+{
+  install_requirements
   clone_OMZ
   confirm_zsh_default
-  makeSymLinks
+  make_symlinks
   install_tpm
 }
 
-makeSymLinks() {
-  # change to the dotfiles directory
-  echo -n "Changing to the $dir directory ..."
-  cd $dir
-  echo "done"
+install_requirements()
+{
+    sudo apt-get update
 
-  # symlink the files, we just force it if needed
+    for req in "${requirements[@]}"; do
+      if ! command -v "$req"; then
+          echo "Installing $req"
+          sudo apt-get install -y "$req"
+      fi
+    done
+}
+
+make_symlinks()
+{
+  echo "Changing to the $dir directory ..."
+  cd $dir
+
   for file in "${home_files[@]}"; do
     echo "Creating symlink to $file in home directory"
-    ln -sf $dir/$file ~/.$file
+    ln -sf "$dir/$file" ~/."$file"
   done
 
-  # symlink the nvim configuration file
+  echo "Creating nvim symlink"
   ln -sf $dir/$nvimInit $nvim/$nvimInit
 }
 
-install_tpm(){
+install_tpm()
+{
   if [[ ! -d ~/.tmux/plugins ]]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   fi
 }
 
-clone_OMZ() {
+clone_OMZ()
+{
 if [[ ! -d $dir/oh-my-zsh/ ]]; then
-  echo -n "cloning oh-my-zsh"
+  echo "cloning oh-my-zsh"
   git clone git@github.com:robbyrussell/oh-my-zsh.git
 fi
 }
 
-confirm_zsh_default(){
-  if [[ ! $(echo /usr/local$SHELL) == $(which zsh) ]]; then
-    echo "changin shell"
-    chsh -s $(which zsh)
+confirm_zsh_default()
+{
+  if [[ ! "$SHELL" == $(which zsh) ]]; then
+    echo "changing shell to zsh"
+    chsh -s "$(which zsh)"
   fi
 }
 

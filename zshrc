@@ -105,10 +105,10 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.g
 export PATH=$PATH:$HOME/bin
 
 # python stuff
-export WORKON_HOME=\$HOME/.virtualenvs
-export PROJECT_HOME=\$HOME/Devel
-source ~/.local/bin/virtualenvwrapper.sh
+#export WORKON_HOME=\$HOME/.virtualenvs
+#export PROJECT_HOME=\$HOME/Devel
+#source ~/.local/bin/virtualenvwrapper.sh
 
 # k8s aliases
-source ~/k8sbash/k8s_bashrc.sh
+#source ~/k8sbash/k8s_bashrc.sh
 
