@@ -183,6 +183,8 @@ let NERDTreeShowLineNumbers=1
 autocmd FileType nerdtree setlocal relativenumber
 
 " ALE Settings
+let g:ale_linters = {}
+let g:ale_linters.elixir = ['credo', 'dialyxir', 'dogma', 'elixir-ls', 'mix']
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = ['eslint']
 let g:ale_fixers.elixir = ['mix_format']
@@ -260,6 +262,7 @@ au BufNewFile,BufRead *.json setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.js,*.jsx setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.bazel setlocal syntax=bzl
 au BufNewFile,BufRead *.sh setlocal expandtab ts=2 sw=2
+au BufNewFile,BufRead Tiltfile setlocal syntax=bzl
 
 " spell check for git commits
 autocmd FileType gitcommit setlocal spell
