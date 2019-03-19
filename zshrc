@@ -110,7 +110,7 @@ export PATH=$PATH:$HOME/bin
 #source ~/.local/bin/virtualenvwrapper.sh
 
 # k8s aliases
-#source ~/k8sbash/k8s_bashrc.sh
+source ~/k8sbash/k8s_bashrc.sh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
