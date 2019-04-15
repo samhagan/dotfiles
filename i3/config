@@ -160,6 +160,9 @@ bindsym XF86AudioRaiseVolume exec amixer -D pulse set Master 5%+ #increase sound
 bindsym XF86AudioLowerVolume exec amixer -D pulse set Master 5%- #decrease sound volume
 bindsym XF86AudioMute exec amixer set -D pulse Master 1+ toggle # mute sound
 
+# float these by default
+for_window [class="Gnome-calculator"] floating enable
+
 bindsym Ctrl+$mod+l exec $lockcmd
 
 mode "$mode_system" {

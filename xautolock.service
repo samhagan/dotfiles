@@ -3,6 +3,7 @@ Description=Lock the screen automatically after a timeout
 
 [Service]
 Type=simple
+Restart=always
 ExecStart=/usr/bin/xautolock -time 10 -locker "i3lock -c 111111 -n" -killtime 15 -killer "systemctl suspend"
 
 [Install]
