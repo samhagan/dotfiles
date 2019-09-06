@@ -31,10 +31,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'morhetz/gruvbox'
 Plug 'chriskempson/base16-vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-Plug 'elmcast/elm-vim'
 Plug 'ap/vim-buftabline'
 Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
@@ -43,17 +41,19 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'junegunn/fzf.vim'
 Plug 'pangloss/vim-javascript'
-"Plug 'jelera/vim-javascript-syntax'
-Plug 'mxw/vim-jsx'
+"Plug 'mxw/vim-jsx'
 Plug 'suan/vim-instant-markdown'
 Plug 'vim-scripts/groovy.vim'
 Plug 'w0rp/ale'
 Plug 'ruanyl/vim-fixmyjs'
 Plug 'tpope/vim-fugitive'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'hashivim/vim-terraform'
 Plug 'leafgarland/typescript-vim'
 Plug 'elixir-editors/vim-elixir'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'google/vim-jsonnet'
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 call plug#end()
 
 "*****************************************************************************
@@ -188,6 +188,7 @@ let g:ale_linters.elixir = ['credo', 'dialyxir', 'dogma', 'elixir-ls', 'mix']
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = ['eslint']
 let g:ale_fixers.elixir = ['mix_format']
+"let g:ale_fixers.python = ['black']
 let g:ale_fix_on_save = 1
 
 " Turn on autcomplete
@@ -212,6 +213,7 @@ let g:go_fmt_command = "goimports"
 let g:go_gocode_unimported_packages = 1
 let g:go_def_mode = "godef"
 let g:go_decls_mode = "fzf"
+let g:go_auto_type_info = 0
 
 au FileType go nmap <F12> <Plug>(go-def)
 
@@ -249,10 +251,13 @@ let g:elm_format_autosave = 1
 let g:elm_setup_keybindings = 0
 
 " vim-jsx
-let g:jsx_ext_required = 0
+"let g:jsx_ext_required = 0
 
 " markdown preview
 let g:instant_markdown_autostart = 0
+
+" jsonnet
+let g:jsonnet_fmt_fail_silently = 0
 
 "*****************************************************************************
 "" File Type Settings
@@ -263,10 +268,11 @@ au BufNewFile,BufRead *.txt setlocal noet ts=4 sw=4
 au BufNewFile,BufRead *.md setlocal spell noet ts=4 sw=4
 au BufNewFile,BufRead *.yml,*.yaml setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.json setlocal expandtab ts=2 sw=2
-au BufNewFile,BufRead *.js,*.jsx setlocal expandtab ts=2 sw=2
-au BufNewFile,BufRead *.bazel setlocal syntax=bzl
+au BufNewFile,BufRead *.js,*.jsx,*.ts,*.tsx setlocal expandtab ts=2 sw=2
+au BufNewFile,BufRead *.bazel setlocal syntax=bzl expandtab ts=2 sw=2
 au BufNewFile,BufRead *.sh setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead Tiltfile setlocal syntax=bzl
+au BufNewFile,BufRead *.jsonnet,*.libsonnet setlocal expandtab ts=2 sw=2
 
 " spell check for git commits
 autocmd FileType gitcommit setlocal spell

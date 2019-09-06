@@ -104,6 +104,9 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.g
 # bazel stuff
 export PATH=$PATH:$HOME/bin
 
+# python global shit
+export PATH=$PATH:$HOME/.local/bin
+
 # python stuff
 #export WORKON_HOME=\$HOME/.virtualenvs
 #export PROJECT_HOME=\$HOME/Devel

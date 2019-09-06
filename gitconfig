@@ -1,6 +1,7 @@
 [user]
 	email = samuel.hagan@gmail.com
 	name = Sam Hagan
+	signingkey = D9C4EE8B8958312CCFD38D013C5D18F6866A7B8F
 [color]
 	ui = true
 [core]
