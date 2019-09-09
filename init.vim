@@ -54,6 +54,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'hashivim/vim-terraform'
 Plug 'leafgarland/typescript-vim'
 Plug 'elixir-editors/vim-elixir'
+Plug 'google/vim-jsonnet'
 call plug#end()
 
 "*****************************************************************************
@@ -188,6 +189,7 @@ let g:ale_linters.elixir = ['credo', 'dialyxir', 'dogma', 'elixir-ls', 'mix']
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = ['eslint']
 let g:ale_fixers.elixir = ['mix_format']
+let g:ale_fixers.python = ['autopep8']
 let g:ale_fix_on_save = 1
 
 " Turn on autcomplete
@@ -212,6 +214,7 @@ let g:go_fmt_command = "goimports"
 let g:go_gocode_unimported_packages = 1
 let g:go_def_mode = "godef"
 let g:go_decls_mode = "fzf"
+let g:go_auto_type_info = 0
 
 au FileType go nmap <F12> <Plug>(go-def)
 
@@ -254,6 +257,12 @@ let g:jsx_ext_required = 0
 " markdown preview
 let g:instant_markdown_autostart = 0
 
+" jsonnet
+let g:jsonnet_fmt_fail_silently = 0
+
+" autorun buildifier
+autocmd BufWritePost *.bzl,*.bazel silent! !buildifier <afile>
+
 "*****************************************************************************
 "" File Type Settings
 "*****************************************************************************
@@ -267,6 +276,7 @@ au BufNewFile,BufRead *.js,*.jsx setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.bazel setlocal syntax=bzl
 au BufNewFile,BufRead *.sh setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead Tiltfile setlocal syntax=bzl
+au BufNewFile,BufRead *.jsonnet,*.libsonnet setlocal ts=2 sw=2
 
 " spell check for git commits
 autocmd FileType gitcommit setlocal spell

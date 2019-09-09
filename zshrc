@@ -7,6 +7,9 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="flazz"
 
+autoload bashcompinit
+bashcompinit
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -79,6 +82,9 @@ export PATH=$PATH:$GOPATH/bin
 # npm global shit
 export PATH=$PATH:$HOME/.npm-global/bin
 
+# swift
+export PATH=$PATH:$HOME/swift/usr/bin
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -125,3 +131,10 @@ setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording en
 
 export EDITOR="nvim"
 export DOCKER_BUILDKIT=1
+
+#source $HOME/dotfiles/nashctl.zsh
+
+#. $HOME/.asdf/asdf.sh
+#. $HOME/.asdf/completions/asdf.bash
+
+#source /home/sam/.bazel/bin/bazel-complete.bash
