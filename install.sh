@@ -49,7 +49,7 @@ install_tpm(){
 }
 
 install_packages(){
-  apt-install -y \
+  apt-get install -y \
     fonts-liberation \
     git \
     curl \
