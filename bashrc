@@ -53,8 +53,12 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+parse_git_dirty(){
+  [[ $(git status --porcelain 2>/dev/null) != "" ]] && echo "*"
+}
+
 parse_git_branch() {
- git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/(\1$(parse_git_dirty))/"
 }
 
 if [ "$color_prompt" = yes ]; then
@@ -96,3 +100,5 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+[ -f ~/.config/k8sbash/k8s_bashrc.sh ] && source ~/.config/k8sbash/k8s_bashrc.sh

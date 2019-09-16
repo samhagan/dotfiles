@@ -54,6 +54,12 @@ install_base16(){
   fi
 }
 
+install_k8sbash(){
+  if [[ ! -d ~/.config/base16-shell ]]; then
+    git clone https://github.com/amill676/k8sbash.git ~/.config/k8sbash
+  fi
+}
+
 install_packages(){
   apt-get install -y \
     xorg \
@@ -84,6 +90,7 @@ install_packages(){
 
   install_tpm
   install_base16
+  install_k8sbash
 
   # chrome
   # slack
