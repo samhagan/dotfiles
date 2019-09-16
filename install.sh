@@ -75,7 +75,12 @@ install_packages(){
     zathura \
     pulseaudio \
     sudo \
-    i3
+    i3 \
+    zenity \
+    fonts-font-awesome \
+    kdialog \
+    dbus-x11 \
+    notify-osd
 
   install_tpm
   install_base16
