@@ -1,82 +1,85 @@
 #!/bin/bash
 set -euo pipefail
 
-########### Variables
-dir=~/dotfiles
-nvim=~/.config/nvim
-nvimInit="init.vim"
+dir=$HOME/dotfiles
 
 # list of files to symlink to the home directory
 home_files=(
-  zshrc
-  oh-my-zsh
+  bash_aliases
+  bash_logout
+  bash_profile
+  bashrc
   gitconfig
   tmux.conf
+  xinitrc
+  Xmodmap
+  Xresources
 )
 
-# list of programs to confirm are installed
-requirements=(
-  git
-  tmux
+# list of files to symlink to the .config directory
+config_files=(
+  i3/config
+  nvim/init.vim
 )
 
-###########
-main()
-{
-  install_requirements
-  clone_OMZ
-  confirm_zsh_default
-  make_symlinks
-  install_tpm
-}
-
-install_requirements()
-{
-    sudo apt-get update
-
-    for req in "${requirements[@]}"; do
-      if ! command -v "$req"; then
-          echo "Installing $req"
-          sudo apt-get install -y "$req"
-      fi
-    done
-}
-
-make_symlinks()
-{
-  echo "Changing to the $dir directory ..."
-  cd $dir
-
+make_home_links(){
   for file in "${home_files[@]}"; do
-    echo "Creating symlink to $file in home directory"
-    ln -sf "$dir/$file" ~/."$file"
+    echo "creating symlink to $file in home directory"
+    ln -sf "$dir/$file" "$HOME/.$file"
   done
-
-  echo "Creating nvim symlink"
-  ln -sf $dir/$nvimInit $nvim/$nvimInit
 }
 
-install_tpm()
-{
+make_config_links(){
+  for file in "${config_files[@]}"; do
+    src_path="$dir/$file"
+    dst_path="$HOME/.config/$file"
+    dst_dir=$(dirname "$dst_path")
+
+    mkdir -p "$dst_dir"
+
+    echo "creating symlink from $src_path to $dst_path"
+    ln -sf "$src_path" "$dst_path"
+  done
+}
+
+install_tpm(){
   if [[ ! -d ~/.tmux/plugins ]]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   fi
 }
 
-clone_OMZ()
-{
-if [[ ! -d $dir/oh-my-zsh/ ]]; then
-  echo "cloning oh-my-zsh"
-  git clone git@github.com:robbyrussell/oh-my-zsh.git
+install_packages(){
+  apt-install -y \
+    fonts-liberation \
+    git \
+    curl \
+    fuse \
+    make \
+    python-pip python3-venv python3-pip \
+    libdbus-glib-1-2 \
+    libu2f-host0 \
+    xclip \
+    ripgrep \
+    tmux \
+    xclip \
+    libpolkit-agent-1-0 \
+    xautolock \
+    ranger \
+    zathura \
+    pulseaudio \
+    sudo \
+    i3
+
+  install_tpm
+}
+
+MODE=$1
+
+if [ "$MODE" = "link" ]; then
+  make_home_links
+  make_config_links
 fi
-}
 
-confirm_zsh_default()
-{
-  if [[ ! "$SHELL" == $(which zsh) ]]; then
-    echo "changing shell to zsh"
-    chsh -s "$(which zsh)"
-  fi
-}
-
-main
+if [ "$MODE" = "packages" ]; then
+  install_packages
+fi

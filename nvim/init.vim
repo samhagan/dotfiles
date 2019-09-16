@@ -34,18 +34,13 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'chriskempson/base16-vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'ap/vim-buftabline'
-Plug 'Raimondi/delimitMate'
-Plug 'majutsushi/tagbar'
 Plug 'moll/vim-bbye'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'junegunn/fzf.vim'
 Plug 'pangloss/vim-javascript'
-"Plug 'mxw/vim-jsx'
-Plug 'suan/vim-instant-markdown'
 Plug 'vim-scripts/groovy.vim'
 Plug 'w0rp/ale'
-Plug 'ruanyl/vim-fixmyjs'
 Plug 'tpope/vim-fugitive'
 Plug 'hashivim/vim-terraform'
 Plug 'leafgarland/typescript-vim'
@@ -83,8 +78,6 @@ set nobackup			" Don't create annoying backup files
 set nowritebackup
 "set t_Co=256			" Use 256 colors
 
-" au BufLeave,FocusLost * silent! wall	" Set vim to save the file on focus out.
-
 " Search settings
 set hlsearch			" Highlight results
 set ignorecase			" Ignore casing of searches
@@ -107,9 +100,6 @@ endif
 
 if has("nvim")
 	syntax on
-	"colorscheme base16-oceanicnext
-	"set background=dark
-	"let base16colorspace=256
 endif
 
 " Backup settings
@@ -164,7 +154,6 @@ inoremap <esc> <nop>
 " Nerdtree
 nmap <C-n> :NERDTreeToggle<CR>
 noremap <Leader>n :NERDTreeFocus<cr>
-"noremap <Leader>nf :NERDTreeFind<cr>
 
 let NERDTreeShowHidden = 1
 let NERDTreeQuitOnOpen = 1
@@ -184,10 +173,10 @@ autocmd FileType nerdtree setlocal relativenumber
 
 " ALE Settings
 let g:ale_linters = {}
-let g:ale_linters.elixir = ['credo', 'dialyxir', 'dogma', 'elixir-ls', 'mix']
+"let g:ale_linters.elixir = ['credo', 'dialyxir', 'dogma', 'elixir-ls', 'mix']
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = ['eslint']
-let g:ale_fixers.elixir = ['mix_format']
+"let g:ale_fixers.elixir = ['mix_format']
 "let g:ale_fixers.python = ['black']
 let g:ale_fix_on_save = 1
 
@@ -246,23 +235,12 @@ command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-h
 let blacklist = ['markdown', 'md']
 autocmd BufWritePre * StripWhitespace
 
-" elm-vim
-let g:elm_format_autosave = 1
-let g:elm_setup_keybindings = 0
-
-" vim-jsx
-"let g:jsx_ext_required = 0
-
-" markdown preview
-let g:instant_markdown_autostart = 0
-
 " jsonnet
 let g:jsonnet_fmt_fail_silently = 0
 
 "*****************************************************************************
 "" File Type Settings
 "*****************************************************************************
-
 au BufNewFile,BufRead *.vim setlocal noet ts=4 sw=4 sts=4
 au BufNewFile,BufRead *.txt setlocal noet ts=4 sw=4
 au BufNewFile,BufRead *.md setlocal spell noet ts=4 sw=4
@@ -294,5 +272,4 @@ set wildignore+=go/bin							" Go bin files
 set wildignore+=go/bin-vagrant					" Go bin-vagrant files
 set wildignore+=*.pyc							" Python byte code
 set wildignore+=*.orig							" Merge resolution files
-set wildignore+=elm_stuff						" elm
 
