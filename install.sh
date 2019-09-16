@@ -50,6 +50,7 @@ install_tpm(){
 
 install_packages(){
   apt-get install -y \
+    xorg \
     fonts-liberation \
     git \
     curl \
