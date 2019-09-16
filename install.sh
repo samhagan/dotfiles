@@ -79,6 +79,9 @@ install_packages(){
 
   install_tpm
   install_base16
+
+  # chrome
+  # slack
 }
 
 MODE=$1
