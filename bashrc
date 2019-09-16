@@ -12,8 +12,8 @@ export HISTCONTROL=ignoreboth:erasedups
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-export HISTSIZE=10000
-export HISTFILESIZE=20000
+export HISTSIZE='INFINITE'
+export HISTFILESIZE='INFINITE'
 export PROMPT_COMMAND='history -n; history -w; history -c; history -r'
 
 # check the window size after each command and, if necessary,
