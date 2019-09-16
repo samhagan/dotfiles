@@ -48,6 +48,12 @@ install_tpm(){
   fi
 }
 
+install_base16(){
+  if [[ -d ~/.config/base16-shell ]]; then
+    git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+  fi
+}
+
 install_packages(){
   apt-get install -y \
     xorg \
@@ -72,6 +78,7 @@ install_packages(){
     i3
 
   install_tpm
+  install_base16
 }
 
 MODE=$1
