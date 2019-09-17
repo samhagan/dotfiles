@@ -1,10 +1,10 @@
 #!/bin/bash
 set -euo pipefail
 
-dir=$HOME/dotfiles
+dir="$HOME/dotfiles"
+envfile="$dir/envs.txt"
 
-# list of files to symlink to the home directory
-home_files=(
+configs=(
   bash_aliases
   bash_logout
   bash_profile
@@ -14,31 +14,21 @@ home_files=(
   xinitrc
   Xmodmap
   Xresources
+  config/i3/config
+  config/nvim/init.vim
 )
 
-# list of files to symlink to the .config directory
-config_files=(
-  i3/config
-  nvim/init.vim
-)
-
-make_home_links(){
-  for file in "${home_files[@]}"; do
-    echo "creating symlink to $file in home directory"
-    ln -sf "$dir/$file" "$HOME/.$file"
-  done
-}
-
-make_config_links(){
-  for file in "${config_files[@]}"; do
+copy_config(){
+  for file in "${configs[@]}"; do
     src_path="$dir/$file"
-    dst_path="$HOME/.config/$file"
+    dst_path="$HOME/.$file"
     dst_dir=$(dirname "$dst_path")
 
-    mkdir -p "$dst_dir"
+    [[ -d "$dst_dir" ]] && mkdir -p "$dst_dir"
+    [[ -L "$dst_path" ]] && rm -f "$dst_path"
 
-    echo "creating symlink from $src_path to $dst_path"
-    ln -sf "$src_path" "$dst_path"
+    echo "copying $src_path to $dst_path"
+    envsubst < "$src_path" > "$dst_path"
   done
 }
 
@@ -86,7 +76,8 @@ install_packages(){
     fonts-font-awesome \
     kdialog \
     dbus-x11 \
-    notify-osd
+    notify-osd \
+    gnome-screenshot
 
   install_tpm
   install_base16
@@ -99,8 +90,7 @@ install_packages(){
 MODE=$1
 
 if [ "$MODE" = "link" ]; then
-  make_home_links
-  make_config_links
+  copy_config
 fi
 
 if [ "$MODE" = "packages" ]; then
