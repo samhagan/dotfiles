@@ -102,3 +102,11 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 [ -f ~/.config/k8sbash/k8s_bashrc.sh ] && source ~/.config/k8sbash/k8s_bashrc.sh
+
+# bazel related
+if [ -f "$HOME/.bazel/bin/bazel-complete.bash" ]; then
+    export PATH=$PATH:$HOME/bin
+    source /home/sam/.bazel/bin/bazel-complete.bash
+fi
+
+export GPG_TTY=$(tty)

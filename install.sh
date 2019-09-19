@@ -19,6 +19,7 @@ configs=(
 )
 
 copy_config(){
+  source "$envfile"
   for file in "${configs[@]}"; do
     src_path="$dir/$file"
     dst_path="$HOME/.$file"
@@ -28,7 +29,7 @@ copy_config(){
     [[ -L "$dst_path" ]] && rm -f "$dst_path"
 
     echo "copying $src_path to $dst_path"
-    envsubst < "$src_path" > "$dst_path"
+    cp -f "$src_path" "$dst_path"
   done
 }
 
@@ -77,7 +78,10 @@ install_packages(){
     kdialog \
     dbus-x11 \
     notify-osd \
-    gnome-screenshot
+    gnome-screenshot \
+    eog \
+    gnome-keyring \
+    shellcheck
 
   install_tpm
   install_base16

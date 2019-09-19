@@ -1,7 +1,7 @@
 [user]
 	email = samuel.hagan@gmail.com
 	name = Sam Hagan
-	signingkey = D9C4EE8B8958312CCFD38D013C5D18F6866A7B8F
+	signingkey = ${GPG_SIGNING_KEY}
 [color]
 	ui = true
 [core]
@@ -13,3 +13,5 @@
 	br = branch
 [color]
 	status = always
+[commit]
+        gpgsign = true

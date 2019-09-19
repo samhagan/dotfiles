@@ -1,2 +1,2 @@
-export GIT_SIGING_KEY=blah
+export GPG_SIGING_KEY=blah
 export AUDIO_DEVICE_NUMBER=3
