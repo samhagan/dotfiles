@@ -49,6 +49,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'google/vim-jsonnet'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+Plug 'dart-lang/dart-vim-plugin'
 call plug#end()
 
 "*****************************************************************************
@@ -176,8 +177,9 @@ let g:ale_linters = {}
 "let g:ale_linters.elixir = ['credo', 'dialyxir', 'dogma', 'elixir-ls', 'mix']
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = ['eslint']
-"let g:ale_fixers.elixir = ['mix_format']
-"let g:ale_fixers.python = ['black']
+let g:ale_fixers.elixir = ['mix_format']
+let g:ale_fixers.python = ['autopep8']
+let g:ale_fixers.dart = ['dartfmt']
 let g:ale_fix_on_save = 1
 
 " Turn on autcomplete
@@ -203,6 +205,8 @@ let g:go_gocode_unimported_packages = 1
 let g:go_def_mode = "godef"
 let g:go_decls_mode = "fzf"
 let g:go_auto_type_info = 0
+
+let dart_style_guide = 2
 
 au FileType go nmap <F12> <Plug>(go-def)
 

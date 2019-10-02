@@ -81,7 +81,9 @@ install_packages(){
     gnome-screenshot \
     eog \
     gnome-keyring \
-    shellcheck
+    shellcheck \
+    fonts-noto-color-emoji \
+    gawk
 
   install_tpm
   install_base16
