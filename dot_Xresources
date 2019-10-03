@@ -1,0 +1,6 @@
+Urxvt*termName: screen-256color
+URxvt*scrollBar: false
+URxvt*skipScroll: true
+
+URxvt.font: xft:bitstream vera sans mono:size=9:antialias=true
+
