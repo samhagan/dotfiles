@@ -20,6 +20,7 @@ install_k8sbash(){
 }
 
 install_packages(){
+  sudo apt-get update
   sudo apt-get install -y \
     xorg \
     fonts-liberation \
@@ -51,7 +52,8 @@ install_packages(){
     gnome-keyring \
     shellcheck \
     fonts-noto-color-emoji \
-    gawk
+    gawk \
+    libpam-u2f
 
   install_tpm
   install_base16
