@@ -100,6 +100,7 @@ export GPG_TTY
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$HOME/go/bin
+export PATH=$PATH:/usr/local/go/bin
 
 export PATH=$PATH:$HOME/.npm-global/bin
 
