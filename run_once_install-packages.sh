@@ -49,7 +49,7 @@ install_packages(){
     notify-osd \
     gnome-screenshot \
     eog \
-    gnome-keyring \
+    # gnome-keyring \
     shellcheck \
     fonts-noto-color-emoji \
     gawk \
