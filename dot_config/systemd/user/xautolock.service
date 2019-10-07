@@ -1,7 +1,7 @@
 [Unit]
 Description=Lock the screen automatically after a timeout
-After=xorg.target
-Requires=xorg.target
+After=default.target
+Requires=default.target
 
 [Service]
 Type=simple
