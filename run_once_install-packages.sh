@@ -49,7 +49,6 @@ install_packages(){
     notify-osd \
     gnome-screenshot \
     eog \
-    # gnome-keyring \
     shellcheck \
     fonts-noto-color-emoji \
     gawk \
@@ -61,6 +60,7 @@ install_packages(){
 
   # chrome
   # slack
+  # gnome-keyring
 }
 
 install_packages
