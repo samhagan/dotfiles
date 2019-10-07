@@ -165,9 +165,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # screenshots
-bindsym Print exec "gnome-screenshot"
-bindsym Ctrl+Shift+Print exec "gnome-screenshot --window"
-bindsym --release Shift+Print exec "gnome-screenshot --area"
+bindsym --release Shift+Print exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/'
 
 # audio control
 bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume {{ .audio_sink }} +5%"

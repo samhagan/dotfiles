@@ -47,12 +47,12 @@ install_packages(){
     kdialog \
     dbus-x11 \
     notify-osd \
-    gnome-screenshot \
     eog \
     shellcheck \
     fonts-noto-color-emoji \
     gawk \
-    libpam-u2f
+    libpam-u2f \
+    scrot
 
   install_tpm
   install_base16
