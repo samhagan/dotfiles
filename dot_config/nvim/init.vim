@@ -174,12 +174,15 @@ autocmd FileType nerdtree setlocal relativenumber
 
 " ALE Settings
 let g:ale_linters = {}
+let g:ale_linters.go = ['golangci-lint', 'staticcheck']
 "let g:ale_linters.elixir = ['credo', 'dialyxir', 'dogma', 'elixir-ls', 'mix']
+
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = ['eslint']
 let g:ale_fixers.elixir = ['mix_format']
 let g:ale_fixers.python = ['autopep8']
 let g:ale_fixers.dart = ['dartfmt']
+"let g:ale_fixers.go = ['gofmt', 'goimports']
 let g:ale_fix_on_save = 1
 
 " Turn on autcomplete

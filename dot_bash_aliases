@@ -6,3 +6,4 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 alias histr='history -r'
+alias rrc='exec -l bash'
