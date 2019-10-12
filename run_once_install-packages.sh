@@ -52,7 +52,8 @@ install_packages(){
     fonts-noto-color-emoji \
     gawk \
     libpam-u2f \
-    scrot
+    scrot \
+    anki
 
   install_tpm
   install_base16
