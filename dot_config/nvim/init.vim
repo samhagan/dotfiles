@@ -50,6 +50,7 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'google/vim-jsonnet'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'dart-lang/dart-vim-plugin'
+Plug 'Raimondi/delimitMate'
 call plug#end()
 
 "*****************************************************************************
@@ -174,7 +175,13 @@ autocmd FileType nerdtree setlocal relativenumber
 
 " ALE Settings
 let g:ale_linters = {}
+
+" there is an issue with golangci-lint where it doesn't find certain issues
+" running staticcheck in addition for now
+" https://github.com/golangci/golangci-lint/issues/276
 let g:ale_linters.go = ['golangci-lint', 'staticcheck']
+let g:ale_go_golangci_lint_package = 1
+let g:ale_go_staticcheck_lint_package = 1
 "let g:ale_linters.elixir = ['credo', 'dialyxir', 'dogma', 'elixir-ls', 'mix']
 
 let g:ale_fixers = {}
