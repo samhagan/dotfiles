@@ -14,7 +14,7 @@ install_base16(){
 }
 
 install_k8sbash(){
-  if [[ ! -d ~/.config/base16-shell ]]; then
+  if [[ ! -d ~/.config/k8sbash ]]; then
     git clone https://github.com/amill676/k8sbash.git ~/.config/k8sbash
   fi
 }
