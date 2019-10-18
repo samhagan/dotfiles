@@ -95,6 +95,9 @@ if [ -f "$HOME/.bazel/bin/bazel-complete.bash" ]; then
     source /home/sam/.bazel/bin/bazel-complete.bash
 fi
 
+if [ -f "$HOME/.asdf/asdf.sh" ] && source "$HOME/.asdf/asdf.sh"
+if [ -f "$HOME/.asdf/completions/asdf.bash" ] && source "$HOME/.asdf/completions/asdf.bash"
+
 GPG_TTY=$(tty)
 export GPG_TTY
 
@@ -116,3 +119,4 @@ export PATH=$PATH:/usr/lib/dart/bin
 export PATH=$PATH:$HOME/.local/bin
 
 export EDITOR=nvim
+
