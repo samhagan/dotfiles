@@ -63,7 +63,8 @@ install_packages(){
     libgmp3-dev \
     inotify-tools \
     libssl-dev \
-    libncurses5-dev
+    libncurses5-dev \
+    snapd
 
   install_tpm
   install_base16
