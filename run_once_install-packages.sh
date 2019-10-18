@@ -53,7 +53,17 @@ install_packages(){
     gawk \
     libpam-u2f \
     scrot \
-    anki
+    anki \
+    make \
+    build-essential \
+    openssl \
+    autoconf \
+    automake \
+    libtool \
+    libgmp3-dev \
+    inotify-tools \
+    libssl-dev \
+    libncurses5-dev
 
   install_tpm
   install_base16
