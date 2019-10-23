@@ -119,3 +119,5 @@ export PATH=$PATH:/usr/lib/dart/bin
 export PATH=$PATH:$HOME/.local/bin
 
 export EDITOR=nvim
+
+export PATH="$HOME/.cargo/bin:$PATH"
