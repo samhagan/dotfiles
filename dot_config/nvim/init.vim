@@ -189,6 +189,7 @@ let g:ale_fixers.javascript = ['eslint']
 let g:ale_fixers.elixir = ['mix_format']
 let g:ale_fixers.python = ['autopep8']
 let g:ale_fixers.dart = ['dartfmt']
+let g:ale_fixers.rust = ['rustfmt']
 "let g:ale_fixers.go = ['gofmt', 'goimports']
 let g:ale_fix_on_save = 1
 
