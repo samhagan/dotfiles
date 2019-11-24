@@ -181,6 +181,7 @@ let g:ale_linters = {}
 " https://github.com/golangci/golangci-lint/issues/276
 let g:ale_linters.go = ['golangci-lint', 'staticcheck']
 let g:ale_go_golangci_lint_package = 1
+let g:ale_go_golangci_lint_options = ''
 let g:ale_go_staticcheck_lint_package = 1
 "let g:ale_linters.elixir = ['credo', 'dialyxir', 'dogma', 'elixir-ls', 'mix']
 
