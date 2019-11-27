@@ -29,7 +29,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'chriskempson/base16-vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
@@ -213,12 +212,12 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
-let g:go_gocode_unimported_packages = 1
 let g:go_def_mode = "godef"
 let g:go_decls_mode = "fzf"
 let g:go_auto_type_info = 0
-
-let dart_style_guide = 2
+let g:go_gopls_complete_unimported = 1
+call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
+set completeopt-=preview
 
 au FileType go nmap <F12> <Plug>(go-def)
 
