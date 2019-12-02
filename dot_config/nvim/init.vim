@@ -42,7 +42,6 @@ Plug 'vim-scripts/groovy.vim'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-fugitive'
 Plug 'hashivim/vim-terraform'
-Plug 'leafgarland/typescript-vim'
 Plug 'elixir-editors/vim-elixir'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
@@ -211,10 +210,13 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+let g:go_highlight_diagnostic_errors = 0
+let g:go_highlight_structs = 1
+let g:go_highlight_extra_types = 1
 let g:go_fmt_command = "goimports"
 let g:go_def_mode = "godef"
 let g:go_decls_mode = "fzf"
-let g:go_auto_type_info = 0
+let g:go_auto_type_info = 1
 let g:go_gopls_complete_unimported = 1
 call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 set completeopt-=preview
@@ -262,7 +264,7 @@ au BufNewFile,BufRead *.md setlocal spell noet ts=4 sw=4
 au BufNewFile,BufRead *.yml,*.yaml setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.json setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.js,*.jsx,*.ts,*.tsx setlocal expandtab ts=2 sw=2
-au BufNewFile,BufRead *.bazel setlocal syntax=bzl expandtab ts=2 sw=2
+au BufNewFile,BufRead *.bazel,*.bzl setlocal syntax=bzl expandtab ts=4 sw=4
 au BufNewFile,BufRead *.sh setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead Tiltfile setlocal syntax=bzl
 au BufNewFile,BufRead *.jsonnet,*.libsonnet setlocal expandtab ts=2 sw=2
@@ -270,7 +272,7 @@ au BufNewFile,BufRead *.jsonnet,*.libsonnet setlocal expandtab ts=2 sw=2
 " spell check for git commits
 autocmd FileType gitcommit setlocal spell
 
-" Wildmenu completion {{{
+" Wildmenu completion
 set wildmenu
 set wildmode=list:full
 
