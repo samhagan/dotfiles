@@ -49,6 +49,7 @@ Plug 'google/vim-jsonnet'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'Raimondi/delimitMate'
+Plug 'jparise/vim-graphql'
 call plug#end()
 
 "*****************************************************************************
@@ -217,7 +218,7 @@ let g:go_fmt_command = "goimports"
 let g:go_def_mode = "godef"
 let g:go_decls_mode = "fzf"
 let g:go_auto_type_info = 1
-let g:go_gopls_complete_unimported = 1
+let g:go_gopls_complete_unimported = 0
 call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 set completeopt-=preview
 
