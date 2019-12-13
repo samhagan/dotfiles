@@ -64,7 +64,8 @@ install_packages(){
     inotify-tools \
     libssl-dev \
     libncurses5-dev \
-    snapd
+    snapd \
+    imwheel
 
   install_tpm
   install_base16
