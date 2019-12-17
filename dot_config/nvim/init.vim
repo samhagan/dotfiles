@@ -261,3 +261,7 @@ au BufNewFile,BufRead *.jsonnet,*.libsonnet setlocal expandtab ts=2 sw=2
 
 " spell check for git commits
 autocmd FileType gitcommit setlocal spell
+
+" Wildmenu
+set wildmenu
+set wildmode=list:full
