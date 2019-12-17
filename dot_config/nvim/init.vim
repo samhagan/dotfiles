@@ -28,28 +28,18 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'chriskempson/base16-vim'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'ap/vim-buftabline'
 Plug 'moll/vim-bbye'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'junegunn/fzf.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'vim-scripts/groovy.vim'
 Plug 'w0rp/ale'
-Plug 'tpope/vim-fugitive'
-Plug 'hashivim/vim-terraform'
-Plug 'elixir-editors/vim-elixir'
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
 Plug 'google/vim-jsonnet'
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-Plug 'dart-lang/dart-vim-plugin'
 Plug 'Raimondi/delimitMate'
-Plug 'jparise/vim-graphql'
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 "*****************************************************************************
@@ -149,6 +139,40 @@ inoremap jK <esc>
 inoremap Jk <esc>
 inoremap JK <esc>
 inoremap <esc> <nop>
+
+" -------------------------------------------------------------------------------------------------
+" coc.nvim default settings
+" -------------------------------------------------------------------------------------------------
+" Better display for messages
+set cmdheight=2
+" Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=300
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+" always show signcolumns
+set signcolumn=yes
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use `[c` and `]c` to navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
 "*****************************************************************************
 "" Plugin Options
 "*****************************************************************************
@@ -190,37 +214,13 @@ let g:ale_fixers.elixir = ['mix_format']
 let g:ale_fixers.python = ['autopep8']
 let g:ale_fixers.dart = ['dartfmt']
 let g:ale_fixers.rust = ['rustfmt']
-"let g:ale_fixers.go = ['gofmt', 'goimports']
+let g:ale_fixers.go = ['goimports']
+let g:ale_fixers.terraform = ['fmt']
 let g:ale_fix_on_save = 1
-
-" Turn on autcomplete
-let g:deoplete#enable_at_startup = 1
 
 " buftabline
 let g:buftabline_indicators = 1
 let g:buftabline_numbers = 1
-
-" vim-terraform
-let g:terraform_align = 1
-let g:terraform_fmt_on_save = 1
-
-" go-vim
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_diagnostic_errors = 0
-let g:go_highlight_structs = 1
-let g:go_highlight_extra_types = 1
-let g:go_fmt_command = "goimports"
-let g:go_def_mode = "godef"
-let g:go_decls_mode = "fzf"
-let g:go_auto_type_info = 1
-let g:go_gopls_complete_unimported = 0
-call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
-set completeopt-=preview
 
 au FileType go nmap <F12> <Plug>(go-def)
 
@@ -228,17 +228,6 @@ au FileType go nmap <F12> <Plug>(go-def)
 autocmd BufEnter,FocusGained * checktime
 
 "FZF
-" Mapping selecting mappings
-nmap <leader><tab> <plug>(fzf-maps-n)
-omap <leader><tab> <plug>(fzf-maps-o)
-xmap <leader><tab> <plug>(fzf-maps-x)
-
-" insert mode completion
-imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-x><c-f> <plug>(fzf-complete-path)
-imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-imap <c-x><c-l> <plug>(fzf-complete-line)
-
 nnoremap <C-p> :GitFiles<CR>
 nnoremap <Leader>ff :Files<CR>
 nnoremap <Leader>fh :History<CR>
@@ -272,22 +261,3 @@ au BufNewFile,BufRead *.jsonnet,*.libsonnet setlocal expandtab ts=2 sw=2
 
 " spell check for git commits
 autocmd FileType gitcommit setlocal spell
-
-" Wildmenu completion
-set wildmenu
-set wildmode=list:full
-
-set wildignore+=.hg,.git,.svn					 " Version control
-set wildignore+=*.aux,*.out,*.toc				 " LaTeX intermediate files
-set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg	 " binary images
-set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
-set wildignore+=*.spl							 " compiled spelling word lists
-set wildignore+=*.sw?							 " Vim swap files
-set wildignore+=*.DS_Store						 " OSX bullshit
-set wildignore+=node_modules					" node stuff
-set wildignore+=go/pkg							" Go static files
-set wildignore+=go/bin							" Go bin files
-set wildignore+=go/bin-vagrant					" Go bin-vagrant files
-set wildignore+=*.pyc							" Python byte code
-set wildignore+=*.orig							" Merge resolution files
-
