@@ -215,8 +215,16 @@ let g:ale_fixers.python = ['autopep8']
 let g:ale_fixers.dart = ['dartfmt']
 let g:ale_fixers.rust = ['rustfmt']
 let g:ale_fixers.go = ['goimports']
-let g:ale_fixers.terraform = ['fmt']
+let g:ale_fixers.terraform = ['terraform']
 let g:ale_fix_on_save = 1
+
+" vim-go syntax
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
 
 " buftabline
 let g:buftabline_indicators = 1
