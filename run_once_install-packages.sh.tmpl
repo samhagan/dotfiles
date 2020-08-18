@@ -19,7 +19,7 @@ install_k8sbash(){
   fi
 }
 
-install_packages(){
+install_linux_packages(){
   sudo apt-get update
   sudo apt-get install -y \
     xorg \
@@ -28,7 +28,6 @@ install_packages(){
     curl \
     fuse \
     make \
-    python-pip python3-venv python3-pip \
     libdbus-glib-1-2 \
     libu2f-host0 \
     xclip \
@@ -76,4 +75,16 @@ install_packages(){
   # gnome-keyring
 }
 
-install_packages
+install_mac_packages(){
+  install_tpm
+  install_base16
+}
+
+{{ if eq .chezmoi.os "linux" }}
+install_linux_packages
+{{ end }}
+
+
+{{ if eq .chezmoi.os "darwin" }}
+install_mac_packages
+{{ end }}

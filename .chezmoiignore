@@ -1,0 +1,13 @@
+{{ if ne .chezmoi.os "linux" }}
+.config/i3
+.config/systemd
+.bash_logout
+.bash_profile
+.xinitrc
+.Xmodmap
+.Xresources
+.bashrc_linux
+{{ end }}
+{{ if ne .chezmoi.os "darwin" }}
+.bashrc_darwin
+{{ end }}
