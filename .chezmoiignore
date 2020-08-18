@@ -11,3 +11,6 @@
 {{ if ne .chezmoi.os "darwin" }}
 .bashrc_darwin
 {{ end }}
+{{ if eq .work_machine }}
+.gitconfig
+{{ end }}
