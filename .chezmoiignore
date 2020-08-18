@@ -6,11 +6,12 @@
 .xinitrc
 .Xmodmap
 .Xresources
-.bashrc_linux
+.bashrc
 {{ end }}
+
 {{ if ne .chezmoi.os "darwin" }}
-.bashrc_darwin
 {{ end }}
+
 {{ if .work_machine }}
 .gitconfig
 {{ end }}
