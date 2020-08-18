@@ -10,7 +10,12 @@ bind P paste-buffer
 bind-key -T copy-mode-vi v send-keys -X begin-selection
 bind-key -T copy-mode-vi y send-keys -X copy-selection
 bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
+{{ if eq .chezmoi.os "linux" }}
 bind -Tcopy-mode-vi y send -X copy-pipe "xclip -i -sel p -f | xclip -i -sel c"
+{{ end }}
+{{ if eq .chezmoi.os "darwin" }}
+bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "pbcopy"
+{{ end }}
 
 set -g set-clipboard off
 
